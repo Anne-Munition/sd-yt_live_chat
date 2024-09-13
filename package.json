@@ -1,0 +1,20 @@
+{
+  "name": "streamdeck-yt_live_chat",
+  "version": "1.0.0",
+  "description": "Streamdeck plugin to open a live YouTube chat in a popout browser window.",
+  "private": true,
+  "author": "DBKynd <db@dbkynd.com>",
+  "license": "MIT",
+  "scripts": {
+    "prettier": "prettier --write \"**/*.{js,md,*rc,html,json}\" --ignore-path .gitignore"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anne-Munition/streamdeck-yt_live_chat.git"
+  },
+  "devDependencies": {
+    "eslint": "^9.10.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.3.3"
+  }
+}
