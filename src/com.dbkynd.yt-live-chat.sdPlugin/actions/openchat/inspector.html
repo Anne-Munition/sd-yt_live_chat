@@ -10,32 +10,54 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <title>com.dbkynd.yt-live-chat Property Inspector</title>
     <link rel="stylesheet" href="../../libs/css/sdpi.css" />
+    <style>
+      #avatar {
+        width: 50px;
+        max-width: 50px;
+        height: 50px;
+        border: 1px solid black;
+      }
+    </style>
   </head>
 
   <body>
     <div class="sdpi-wrapper">
       <form id="property-inspector">
-          <div class="sdpi-item">
-            <div data-localize class="sdpi-item-label" title="api-key">API Key</div>
-            <input
-              data-localize
-              class="sdpi-item-value"
-              name="apiKey"
-              type="text"
-              value=""
-            />
-          </div>
+        <div class="sdpi-item">
+          <div class="sdpi-item-label">API Key</div>
+          <input id="api-key" class="sdpi-item-value" name="apiKey" type="password" value="" required />
+        </div>
 
         <div class="sdpi-item">
-          <div data-localize class="sdpi-item-label" title="channel-id">Channel ID</div>
-          <input
-            data-localize
-            class="sdpi-item-value"
-            name="channelId"
-            type="text"
-            value=""
-          />
+          <div class="sdpi-item-label">Channel ID</div>
+          <input id="channel-id" class="sdpi-item-value" name="channelId" type="text" value="" />
         </div>
+
+        <div class="sdpi-item" style="align-items: start">
+          <div class="sdpi-item-label">Channel Avatar</div>
+          <img id="avatar" class="sdpi-item-value" src="" alt="" />
+        </div>
+
+        <hr />
+
+        <div class="sdpi-item">
+          <div>
+            If you do not know the YouTube channel ID, find it below.<br />
+            Enter a YouTube channel name and hit the Get ID button.
+          </div>
+        </div>
+
+        <div class="sdpi-item">
+          <div class="sdpi-item-label">Channel Name</div>
+          <input id="channel-name" class="sdpi-item-value" name="channelName" type="text" value="" />
+        </div>
+
+        <div class="sdpi-item">
+          <div class="sdpi-item-label">Button</div>
+          <button id="get-id" class="sdpi-item-value max20">Get ID</button>
+        </div>
+
+        <input id="channel-avatar" name="channelAvatar" type="text" value="" hidden />
       </form>
     </div>
 
@@ -47,6 +69,6 @@
     <script src="../../libs/js/api.js"></script>
     <script src="../../libs/js/property-inspector.js"></script>
     <script src="../../libs/js/dynamic-styles.js"></script>
-    <script src="inspector.js"></script>
+    <script defer src="inspector.js"></script>
   </body>
 </html>

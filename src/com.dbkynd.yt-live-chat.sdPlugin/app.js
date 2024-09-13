@@ -22,31 +22,6 @@ async function openChat() {
   else console.log('No video id was found. Is the stream live?');
 }
 
-function fetchChannelId(apiKey, channelName) {
-  const params = {
-    key: apiKey,
-    q: channelName,
-    part: 'snippet',
-    type: 'channel',
-    order: 'relevance',
-    maxResults: 1,
-  };
-  const queryString = new URLSearchParams(params).toString();
-  const url = `${BASE_URL}?${queryString}`;
-
-  return fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      const channelId = data.items[0]?.id?.channelId;
-      return channelId || null;
-    })
-    .catch((error) => {
-      console.error('Error fetching YouTube channel:', error);
-      return null;
-    });
-}
-
 function fetchVideoId(apiKey, channelId) {
   const params = {
     key: apiKey,
