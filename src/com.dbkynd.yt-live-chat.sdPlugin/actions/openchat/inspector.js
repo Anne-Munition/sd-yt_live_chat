@@ -12,6 +12,26 @@ form.addEventListener('submit', function (event) {
   event.preventDefault();
 });
 
+function debounce(func, delay) {
+  let timer;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => func.apply(this, args), delay);
+  };
+}
+
+// Input event listener with debounce
+channelId.addEventListener(
+  'input',
+  debounce(function (event) {
+    getAvatar().catch(() => {
+      channelAvatar.value = '';
+      avatar.src = '';
+      saveSettings();
+    });
+  }, 250),
+);
+
 $PI.onConnected((jsn) => {
   const { actionInfo, appInfo, connection, messageType, port, uuid } = jsn;
   const { payload, context } = actionInfo;
@@ -36,15 +56,24 @@ function saveSettings() {
 document.getElementById('get-id').addEventListener('click', async () => {
   if (!apiKey.value) return;
   if (!channelName.value) return;
+  await getId();
+  if (channelId.value) await getAvatar();
+  channelName.value = '';
+  saveSettings();
+});
+
+async function getId() {
   const id = await fetchChannelId(apiKey.value, channelName.value);
-  channelId.value = id;
-  const url = await fetchChannelAvatar(apiKey.value, id);
+  if (id) channelId.value = id;
+}
+
+async function getAvatar() {
+  const url = await fetchChannelAvatar(apiKey.value, channelId.value);
   if (url) {
     channelAvatar.value = url;
     avatar.src = url;
   }
-  saveSettings();
-});
+}
 
 function fetchChannelId(apiKey, channelName) {
   const params = {
@@ -63,10 +92,6 @@ function fetchChannelId(apiKey, channelName) {
     .then((data) => {
       const channelId = data.items[0]?.id?.channelId;
       return channelId || null;
-    })
-    .catch((error) => {
-      console.error('Error fetching YouTube channel:', error);
-      return null;
     });
 }
 
@@ -84,9 +109,5 @@ function fetchChannelAvatar(apiKey, channelId) {
     .then((data) => {
       const avatarUrl = data.items[0]?.snippet?.thumbnails?.default?.url;
       return avatarUrl || null;
-    })
-    .catch((error) => {
-      console.error('Error fetching YouTube channel:', error);
-      return null;
     });
 }
