@@ -3,19 +3,76 @@
 
 const myAction = new Action('com.dbkynd.yt-live-chat.action');
 
-/**
- * The first event fired when Stream Deck starts
- */
-$SD.onConnected(
-  ({ actionInfo, appInfo, connection, messageType, port, uuid }) => {
-    console.log('Stream Deck connected!');
-  },
-);
+// $SD.onConnected(() => {});
 
-myAction.onKeyUp(({ action, context, device, event, payload }) => {
-  console.log('Your key code goes here!');
+myAction.onKeyUp(() => {
+  openChat().catch(console.error);
 });
 
-myAction.onDialRotate(({ action, context, device, event, payload }) => {
-  console.log('Your dial code goes here!');
-});
+const BASE_URL = 'https://www.googleapis.com/youtube/v3/search';
+
+async function openChat() {
+  const apiKey = '';
+  const channelName = '';
+
+  const channelId = await fetchChannelId(apiKey, channelName);
+  if (!channelId) throw new Error('Unable to get channel Id for youtube channel: ' + channelName);
+  const videoId = await fetchVideoId(apiKey, channelId);
+  if (videoId) openYouTubeChat(videoId);
+  else console.log('No video id was found. Is the stream live?');
+}
+
+function fetchChannelId(apiKey, channelName) {
+  const params = {
+    key: apiKey,
+    q: channelName,
+    part: 'snippet',
+    type: 'channel',
+    order: 'relevance',
+    maxResults: 1,
+  };
+  const queryString = new URLSearchParams(params).toString();
+  const url = `${BASE_URL}?${queryString}`;
+
+  return fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      const channelId = data.items[0]?.id?.channelId;
+      return channelId || null;
+    })
+    .catch((error) => {
+      console.error('Error fetching YouTube channel:', error);
+      return null;
+    });
+}
+
+function fetchVideoId(apiKey, channelId) {
+  const params = {
+    key: apiKey,
+    channelId,
+    part: 'snippet',
+    type: 'video',
+    eventType: 'live',
+    order: 'date',
+    maxResults: 1,
+  };
+  const queryString = new URLSearchParams(params).toString();
+  const url = `${BASE_URL}?${queryString}`;
+
+  return fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      const videoId = data.items[0]?.id?.videoId;
+      return videoId || null;
+    })
+    .catch((error) => {
+      console.error('Error fetching YouTube video:', error);
+      return null;
+    });
+}
+
+function openYouTubeChat(videoId) {
+  $SD.openUrl(`https://www.youtube.com/live_chat?is_popout=1&v=${videoId}`);
+}
