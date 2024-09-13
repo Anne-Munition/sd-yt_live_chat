@@ -1,10 +1,1 @@
-{
-  "Description": "Open a YouTube video live stream popout chat in a browser",
-  "Name": "YouTube Live Chat",
-  "Category": "AnneMunition Custom",
-  "com.dbkynd.yt-live-chat.openchat": {
-    "Name": "Open Chat",
-    "Tooltip": "Open the YouTube chat if the channel is live"
-  },
-  "Localization": {}
-}
+{}
