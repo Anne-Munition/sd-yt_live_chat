@@ -6,6 +6,7 @@
   "author": "DBKynd <db@dbkynd.com>",
   "license": "MIT",
   "scripts": {
+    "build": "DistributionTool.exe -b -i src/com.dbkynd.yt-live-chat.sdPlugin -o Release",
     "prettier": "prettier --write \"**/*.{js,md,*rc,html,json}\" --ignore-path .gitignore"
   },
   "repository": {
