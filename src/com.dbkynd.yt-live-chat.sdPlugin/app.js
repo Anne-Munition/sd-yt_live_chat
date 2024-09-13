@@ -6,14 +6,16 @@ const myAction = new Action('com.dbkynd.yt-live-chat.action');
 /**
  * The first event fired when Stream Deck starts
  */
-$SD.onConnected(({ actionInfo, appInfo, connection, messageType, port, uuid }) => {
-	console.log('Stream Deck connected!');
-});
+$SD.onConnected(
+  ({ actionInfo, appInfo, connection, messageType, port, uuid }) => {
+    console.log('Stream Deck connected!');
+  },
+);
 
 myAction.onKeyUp(({ action, context, device, event, payload }) => {
-	console.log('Your key code goes here!');
+  console.log('Your key code goes here!');
 });
 
 myAction.onDialRotate(({ action, context, device, event, payload }) => {
-	console.log('Your dial code goes here!');
+  console.log('Your dial code goes here!');
 });

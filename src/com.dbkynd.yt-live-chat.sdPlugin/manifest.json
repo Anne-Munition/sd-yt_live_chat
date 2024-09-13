@@ -1,49 +1,49 @@
 {
-	"SDKVersion": 2,
-	"Author": "DBKynd",
-	"CodePath": "app.html",
-	"Description": "Open a YouTube video live stream popout chat in a browser.",
-	"Name": "YouTube Live Chat",
-	"Icon": "actions/template/assets/action",
-	"URL": "",
-	"Version": "1.0.0",
-	"Software": {
-		"MinimumVersion": "5.0"
-	},
-	"OS": [
-		{
-			"Platform": "mac",
-			"MinimumVersion": "10.11"
-		},
-		{
-			"Platform": "windows",
-			"MinimumVersion": "10"
-		}
-	],
-	"Category": "AnneMunition Custom",
-	"CategoryIcon": "actions/template/assets/actionimage",
-	"Actions": [
-		{
-			"Icon": "actions/template/assets/actionimage",
-			"Name": "Example Action",
-			"Controllers": ["Keypad", "Encoder"],
-			"Encoder": {
-				"layout": "$B1",
-				"TriggerDescription": {
-					"Rotate": "Describe the rotation",
-					"Push": "Describe the encoder push",
-					"Touch": "Describe the touch",
-					"LongTouch": "Describe the long touch"
-				}
-			},
-			"States": [
-				{
-					"Image": "actions/template/assets/action"
-				}
-			],
-			"Tooltip": "This is an example tooltip",
-			"UUID": "com.dbkynd.yt-live-chat.action",
-			"PropertyInspectorPath": "actions/template/property-inspector/inspector.html"
-		}
-	]
+  "SDKVersion": 2,
+  "Author": "DBKynd",
+  "CodePath": "app.html",
+  "Description": "Open a YouTube video live stream popout chat in a browser.",
+  "Name": "YouTube Live Chat",
+  "Icon": "actions/template/assets/action",
+  "URL": "",
+  "Version": "1.0.0",
+  "Software": {
+    "MinimumVersion": "5.0"
+  },
+  "OS": [
+    {
+      "Platform": "mac",
+      "MinimumVersion": "10.11"
+    },
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    }
+  ],
+  "Category": "AnneMunition Custom",
+  "CategoryIcon": "actions/template/assets/actionimage",
+  "Actions": [
+    {
+      "Icon": "actions/template/assets/actionimage",
+      "Name": "Example Action",
+      "Controllers": ["Keypad", "Encoder"],
+      "Encoder": {
+        "layout": "$B1",
+        "TriggerDescription": {
+          "Rotate": "Describe the rotation",
+          "Push": "Describe the encoder push",
+          "Touch": "Describe the touch",
+          "LongTouch": "Describe the long touch"
+        }
+      },
+      "States": [
+        {
+          "Image": "actions/template/assets/action"
+        }
+      ],
+      "Tooltip": "This is an example tooltip",
+      "UUID": "com.dbkynd.yt-live-chat.action",
+      "PropertyInspectorPath": "actions/template/property-inspector/inspector.html"
+    }
+  ]
 }
