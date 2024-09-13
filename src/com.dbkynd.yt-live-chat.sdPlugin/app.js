@@ -1,25 +1,22 @@
 /// <reference path="libs/js/action.js" />
 /// <reference path="libs/js/stream-deck.js" />
 
-const myAction = new Action('com.dbkynd.yt-live-chat.action');
+const openChatAction = new Action('com.dbkynd.yt-live-chat.openchat');
 
 // $SD.onConnected(() => {});
 
-myAction.onKeyUp(() => {
-  openChat().catch(console.error);
+openChatAction.onKeyUp(({ payload }) => {
+  const { settings } = payload;
+  openChat(settings).catch(console.error);
 });
 
 const BASE_URL = 'https://www.googleapis.com/youtube/v3/search';
 
-async function openChat() {
-  const apiKey = '';
-  const channelName = '';
-
-  const channelId = await fetchChannelId(apiKey, channelName);
-  if (!channelId) throw new Error('Unable to get channel Id for youtube channel: ' + channelName);
+async function openChat(settings) {
+  const { apiKey, channelId } = settings;
+  if (!channelId) return;
   const videoId = await fetchVideoId(apiKey, channelId);
   if (videoId) openYouTubeChat(videoId);
-  else console.log('No video id was found. Is the stream live?');
 }
 
 function fetchVideoId(apiKey, channelId) {
