@@ -2,9 +2,9 @@
   "SDKVersion": 2,
   "Author": "DBKynd",
   "CodePath": "app.html",
-  "Description": "Open a YouTube video live stream popout chat in a browser.",
+  "Description": "Open a YouTube video live stream popout chat in a browser",
   "Name": "YouTube Live Chat",
-  "Icon": "actions/template/assets/action",
+  "Icon": "actions/openchat/assets/action",
   "URL": "",
   "Version": "1.0.0",
   "Software": {
@@ -21,10 +21,10 @@
     }
   ],
   "Category": "AnneMunition Custom",
-  "CategoryIcon": "actions/template/assets/actionimage",
+  "CategoryIcon": "actions/openchat/assets/actionimage",
   "Actions": [
     {
-      "Icon": "actions/template/assets/actionimage",
+      "Icon": "actions/openchat/assets/actionimage",
       "Name": "Example Action",
       "Controllers": ["Keypad", "Encoder"],
       "Encoder": {
@@ -38,12 +38,12 @@
       },
       "States": [
         {
-          "Image": "actions/template/assets/action"
+          "Image": "actions/openchat/assets/action"
         }
       ],
       "Tooltip": "This is an example tooltip",
-      "UUID": "com.dbkynd.yt-live-chat.action",
-      "PropertyInspectorPath": "actions/template/property-inspector/inspector.html"
+      "UUID": "com.dbkynd.yt-live-chat.openchat",
+      "PropertyInspectorPath": "actions/openchat/inspector.html"
     }
   ]
 }

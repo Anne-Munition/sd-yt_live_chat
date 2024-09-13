@@ -1,20 +1,10 @@
 {
-  "Description": "Use this to create your own plugin",
-  "Name": "Stream Deck Template",
-  "Category": "Templates",
-  "com.dbkynd.yt-live-chat.action": {
-    "Name": "Action",
-    "Tooltip": "This is the only action in this plugin"
+  "Description": "Open a YouTube video live stream popout chat in a browser",
+  "Name": "YouTube Live Chat",
+  "Category": "AnneMunition Custom",
+  "com.dbkynd.yt-live-chat.openchat": {
+    "Name": "Open Chat",
+    "Tooltip": "Open the YouTube chat if the channel is live"
   },
-  "Localization": {
-    "More info": "More info",
-    "Message": "Message",
-    "Click Me": "Click Me",
-    "Button": "Button",
-    "More": "More",
-    "My name": "My name",
-    "My title": "My title",
-    "My message": "My message",
-    "My button": "My button"
-  }
+  "Localization": {}
 }
