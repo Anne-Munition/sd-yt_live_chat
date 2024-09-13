@@ -1,12 +1,12 @@
 {
 	"SDKVersion": 2,
-	"Author": "Elgato Systems",
+	"Author": "DBKynd",
 	"CodePath": "app.html",
-	"Description": "Example description",
-	"Name": "Stream Deck Template",
+	"Description": "Open a YouTube video live stream popout chat in a browser.",
+	"Name": "YouTube Live Chat",
 	"Icon": "actions/template/assets/action",
-	"URL": "https://www.elgato.com/en/gaming/stream-deck",
-	"Version": "1.0.2",
+	"URL": "",
+	"Version": "1.0.0",
 	"Software": {
 		"MinimumVersion": "5.0"
 	},
@@ -20,7 +20,7 @@
 			"MinimumVersion": "10"
 		}
 	],
-	"Category": "Template Plugin",
+	"Category": "AnneMunition Custom",
 	"CategoryIcon": "actions/template/assets/actionimage",
 	"Actions": [
 		{
@@ -42,7 +42,7 @@
 				}
 			],
 			"Tooltip": "This is an example tooltip",
-			"UUID": "com.elgato.template.action",
+			"UUID": "com.dbkynd.yt-live-chat.action",
 			"PropertyInspectorPath": "actions/template/property-inspector/inspector.html"
 		}
 	]
